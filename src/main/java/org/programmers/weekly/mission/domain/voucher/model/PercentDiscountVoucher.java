@@ -6,16 +6,20 @@ import java.util.UUID;
 public class PercentDiscountVoucher implements Voucher, Serializable {
     private final UUID voucherId;
     private final long percent;
-    private int TOTAL_PERCENT_NUM = 100;
+    private static final int TOTAL_PERCENT_NUM = 100;
 
     public PercentDiscountVoucher(UUID voucherId, long percent) {
+        this.voucherId = voucherId;
+        this.percent = getPercent(percent);
+    }
+
+    private long getPercent(long percent) {
         if (percent < 0) {
             percent = 0;
         } else if (percent > 100) {
             percent = 100;
         }
-        this.voucherId = voucherId;
-        this.percent = percent;
+        return percent;
     }
 
     @Override

@@ -18,6 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class FileVoucherRepository implements VoucherRepository, InitializingBean ,DisposableBean {
     static final Logger logger = LoggerFactory.getLogger(FileVoucherRepository.class);
     private static final Map<UUID, Voucher> storage = new ConcurrentHashMap<>();
+
     private final String voucherFilePath;
 
     public FileVoucherRepository(@Value("${file.voucher}") String voucherFilePath) {
