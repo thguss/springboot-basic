@@ -17,7 +17,7 @@ public class CommandLine implements Runnable {
     private final CustomerService customerService;
     private final Input input;
     private final Output output;
-    private Boolean isRunnable = true;
+    private boolean isRunnable = true;
 
     @Autowired
     public CommandLine(VoucherService voucherService, CustomerService customerService, Input input, Output output) {
